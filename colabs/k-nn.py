@@ -1,9 +1,9 @@
 import pandas as pd
 import sklearn.metrics
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
+from sklearn import neighbors
 from sklearn.metrics import accuracy_score
-from sklearn import tree
+
 
 sumberdata = pd.read_csv('pima-indians.data.csv')
 print('Ringkasan Data')
@@ -21,7 +21,7 @@ print('X_test = ',X_test.shape)
 print('y_train = ',y_train.shape)
 print('y_test = ',y_test.shape)
 
-klasifikasi = DecisionTreeClassifier()
+klasifikasi = neighbors.KNeighborsClassifier()
 klasifikasi.fit(X_train, y_train)
 prediksi = klasifikasi.predict(X_test)
 konfusi = sklearn.metrics.confusion_matrix(y_test,prediksi)
